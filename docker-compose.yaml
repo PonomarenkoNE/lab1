@@ -1,0 +1,31 @@
+version: '3.7'
+
+services:
+  main-api:
+    build: ./.
+    restart: always
+    working_dir: /cuttly
+    command: gunicorn cuttly.wsgi:application --bind 0.0.0.0:8000
+    volumes:
+      - static_volume:/cuttly/static
+    environment:
+      - HOST=http://localhost:8000
+      - POSTGRES_DB=cuttly-dev
+      - POSTGRES_USER=cuttlyuser
+      - POSTGRES_PASSWORD=cuttlysecret
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+  db:
+    image: postgres
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=cuttly-dev
+      - POSTGRES_USER=cuttlyuser
+      - POSTGRES_PASSWORD=cuttlysecret
+
+volumes:
+  postgres_data:
+  static_volume:

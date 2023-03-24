@@ -106,6 +106,9 @@ class MyURLsView(GenericAPIView):
 
 
 class CuttedView(GenericAPIView):
+    """
+        View for redirecting cutted url to it`s original.
+    """
 
     def get(self, request, id):
         url = URL.objects.filter(id=id).first()

@@ -10,9 +10,12 @@ services:
       - static_volume:/cuttly/static
     environment:
       - HOST=http://localhost:8000
-      - POSTGRES_DB=cuttly-dev
-      - POSTGRES_USER=cuttlyuser
-      - POSTGRES_PASSWORD=cuttlysecret
+      - SQL_ENGINE=django.db.backends.postgresql
+      - SQL_DATABASE=cuttly-dev
+      - SQL_USER=cuttlyuser
+      - SQL_PASSWORD=cuttlysecret
+      - SQL_HOST=db
+      - SQL_PORT=5432
     ports:
       - 8000:8000
     depends_on:

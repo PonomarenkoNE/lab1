@@ -188,8 +188,8 @@ SWAGGER_SETTINGS = {
 }
 
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'allgram API',
-    'DESCRIPTION': 'Swagger for allgram API',
+    'TITLE': 'cuttly API',
+    'DESCRIPTION': 'Swagger for cuttly API',
     'VERSION': '1.0.0',
     'SERVE_PERMISSIONS': ['rest_framework.permissions.AllowAny'],
     'COMPONENT_SPLIT_REQUEST': True,

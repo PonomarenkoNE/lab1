@@ -22,7 +22,7 @@ class User(AbstractUser):
     )
 
     def is_owner(self, id):
-        if self.url.filter(id=id).first():
+        if self.url_set.filter(id=id).first():
             return True
         return False
 

@@ -38,6 +38,6 @@ class URLSerializer(serializers.ModelSerializer):
         return new_url
 
     def update(self, instance, validated_data):
-        instance.reaction = validated_data.get('original_url', instance.original_url)
+        instance.original_url = validated_data.get('original_url', instance.original_url)
         instance.save()
         return instance
